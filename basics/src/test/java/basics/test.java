@@ -1,5 +1,10 @@
 package basics;
 
-public class test {
+import org.testng.annotations.Test;
 
+public class test {
+	@Test
+	public void test1() {
+		
+	}
 }
