@@ -11,6 +11,7 @@ public class AutomationPracticeTest extends TestBase{
 	 */
 	public void TestExample() {
 		String HomePageURL = "";
+		String somethingXpath = "";
 		//open driver
 		
 		//set default email address + set password

@@ -18,7 +18,7 @@ public class DriverDocPage {
 	protected final long WaitTimeOut = 5;
 	protected Duration NavWaitTimeOut = Duration.ofSeconds(5);
 	protected Duration PollingMilSec = Duration.ofMillis(100);
-	//need to change later
+	//need to change later this is the place that saves the url
 	protected String TextBoxUrl = "https://demoqa.com/text-box";
 	protected String RadioButtonUrl = "https://demoqa.com/radio-button";
 	protected String LinksUrl = "https://demoqa.com/links";
@@ -27,6 +27,8 @@ public class DriverDocPage {
 		this.driver = driver;
 	}
 	
+	
+	// for all the sub class name them as "DriversomethingsomethingPage"
 	public DriverDocPage NavigateToPage(String URL) {
 		/*
 		if (URL == this.TextBoxUrl) {
