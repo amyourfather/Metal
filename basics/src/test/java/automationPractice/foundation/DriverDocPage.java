@@ -18,6 +18,7 @@ public class DriverDocPage {
 	protected final long WaitTimeOut = 5;
 	protected Duration NavWaitTimeOut = Duration.ofSeconds(5);
 	protected Duration PollingMilSec = Duration.ofMillis(100);
+	//need to change later
 	protected String TextBoxUrl = "https://demoqa.com/text-box";
 	protected String RadioButtonUrl = "https://demoqa.com/radio-button";
 	protected String LinksUrl = "https://demoqa.com/links";
@@ -46,6 +47,7 @@ public class DriverDocPage {
 		throw new IllegalArgumentException("you just entered an unsupported website URL: " + URL);
 	}
 	
+	//if nothing
 	public void Click(String xpath) {
 		WebElement button = driver.findElement(By.xpath(xpath));
 		
@@ -54,6 +56,11 @@ public class DriverDocPage {
 		button.click();
 	}
 	
+	public void ClickByCss(String CSSPath) {
+
+	}
+	
+	//if have new link
 	public void ClickTo(String xpath, String URL) {
 		WebElement button = driver.findElement(By.xpath(xpath));
 		
@@ -68,6 +75,7 @@ public class DriverDocPage {
 		urlchangewait.until(ExpectedConditions.urlToBe(URL));
 	}
 	
+	//if need to open new tab
 	public String ClickNewTab(String xpath, String URL) {
 		WebElement button = driver.findElement(By.xpath(xpath));
 		
