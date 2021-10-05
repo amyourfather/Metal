@@ -13,12 +13,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import automationPractice.test.DriverHomePageBen;
+
 public class DriverDocPage {
 	protected WebDriver driver;
 	protected final long WaitTimeOut = 5;
 	protected Duration NavWaitTimeOut = Duration.ofSeconds(5);
 	protected Duration PollingMilSec = Duration.ofMillis(100);
 	//need to change later this is the place that saves the url
+	protected String HomePageUrlBen = "http://automationpractice.com/";
 	protected String TextBoxUrl = "https://demoqa.com/text-box";
 	protected String RadioButtonUrl = "https://demoqa.com/radio-button";
 	protected String LinksUrl = "https://demoqa.com/links";
@@ -30,12 +33,12 @@ public class DriverDocPage {
 	
 	// for all the sub class name them as "DriversomethingsomethingPage"
 	public DriverDocPage NavigateToPage(String URL) {
-		/*
-		if (URL == this.TextBoxUrl) {
-			driver.navigate().to(URL);
-			return new DriverTextBoxPage(driver);
-		}
 		
+		if (URL == this.HomePageUrlBen) {
+			driver.navigate().to(URL);
+			return new DriverHomePageBen(driver);
+		}
+		/*
 		if (URL == this.RadioButtonUrl) {
 			driver.navigate().to(URL);
 			return new DriverRadioButtonPage(driver);

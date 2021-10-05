@@ -21,7 +21,8 @@ public class TestBase {
 			throw new RuntimeException("property file not found in the classpath");
 		}
 		
-
+		
+		System.out.println(browsertype);
 		DManager = WebDriverFactory.getManager(browsertype);
 		DManager.createDriver();
 		driver = DManager.getDriver();
