@@ -113,4 +113,24 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 		String x = productDetailPage.GetText(ReplyXpath);
 		System.out.println("output" + x);
 	}
+	
+	@Test
+	/*
+	 * FR003.B1 P1 Buyers  will  be  able  to  search  the  products  by  keyword,  by  browsing  through category/sub-category, using filters and sorting options.
+	 */
+	public void FR003B1P1Test() {
+		String homePage = "http://automationpractice.com/index.php";
+		String searchBarXpath = "//input[@id='search_query_top']";
+		String searchButtonXpath = "//button[@name='submit_search']";
+		String searchTerm = "Shirt";
+		String resultPage = "http://automationpractice.com/index.php?controller=search&orderby=position&orderway=desc&search_query=Shirt&submit_search=";
+		DriverDocPage = new DriverDocPage(driver);
+		DriverHomePageBen HomePage = (DriverHomePageBen) DriverDocPage.NavigateToPage(homePage);
+		String currentUrl = driver.getCurrentUrl();
+		
+		SearchResultPage searchResultPage = (SearchResultPage) DriverDocPage.NavigateToPage(resultPage);
+		String resultUrl = searchResultPage.getResultUrl();
+		
+		
+	}
 }
