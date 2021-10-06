@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import automationPractice.test.DriverHomePageBen;
+import automationPractice.page.DriverHomePageBen;
 
 public class DriverDocPage {
 	protected WebDriver driver;
@@ -21,7 +21,7 @@ public class DriverDocPage {
 	protected Duration NavWaitTimeOut = Duration.ofSeconds(5);
 	protected Duration PollingMilSec = Duration.ofMillis(100);
 	//need to change later this is the place that saves the url
-	protected String HomePageUrlBen = "http://automationpractice.com/";
+	protected String HomePageUrlBen = "http://automationpractice.com/index.php";
 	protected String TextBoxUrl = "https://demoqa.com/text-box";
 	protected String RadioButtonUrl = "https://demoqa.com/radio-button";
 	protected String LinksUrl = "https://demoqa.com/links";
@@ -106,6 +106,11 @@ public class DriverDocPage {
 	
 	public String GetText(String xpath) {
 		WebElement Location = driver.findElement(By.xpath(xpath));
+		return Location.getText();
+	}
+	
+	public String GetTextCSS(String CSS) {
+		WebElement Location = driver.findElement(By.cssSelector(CSS));
 		return Location.getText();
 	}
 	
