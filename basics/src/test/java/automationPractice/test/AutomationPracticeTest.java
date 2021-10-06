@@ -1,6 +1,7 @@
 package automationPractice.test;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -8,6 +9,8 @@ import framework.ChromeDriverManager;
 import framework.TestBase;
 import framework.WebDriverFactory;
 import automationPractice.foundation.DriverDocPage;
+import automationPractice.page.DriverHomePageBen;
+import automationPractice.page.ProductDetailPage;
 
 public class AutomationPracticeTest extends TestBase{
 	/*
@@ -36,7 +39,7 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 		String HomePageURL = "http://automationpractice.com/";
 		String somethingXpath = "";
 		//new the driver page
-		DriverDocPage = new DriverDocPage(driver);
+		//DriverDocPage = new DriverDocPage(driver);
 		//set default email address + set password
 		//DriverHomePage HomePage = DriverDocPage.NavigateToPage(HomePageURL);
 		//String currentURL = driver.getCurrentUrl();
@@ -51,14 +54,59 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 	 * FR005.B6 P3 User will not be able to add the product to wishlist without login.
 	 */
 	public void FR005B6P3Test() {
-		String HomePageURL = "http://automationpractice.com/";
-		String somethingXpath = "";
-		
+		String HomePageURL = "http://automationpractice.com/index.php";
+		String ProductXpath = "//div[@id = 'center_column']//div[@class = 'tab-content']//ul[@id = 'homefeatured']//"
+				+ "li[@class = 'ajax_block_product col-xs-12 col-sm-4 col-md-3 first-in-line first-item-of-tablet-line "
+				+ "first-item-of-mobile-line']/div/div[@class = 'left-block']//div[@class = 'product-image-container']//a[@class = 'product_img_link']";
+		String ProductDetailUrl = "http://automationpractice.com/index.php?id_product=1&controller=product";
+		String AddtoWishXpath = "//a[@id = 'wishlist_button']";
+		String NotloginReportXpath = "//p[@class = 'fancybox-error']//text()[0]";
+		String Temp = "//div[@class = 'fancybox-inner']";
+		//String TempCSS = "p[class=\"fancybox-error\"]";
 		DriverDocPage = new DriverDocPage(driver);
 		
 		DriverHomePageBen HomePage = (DriverHomePageBen) DriverDocPage.NavigateToPage(HomePageURL);
-		//String currentURL = driver.getCurrentUrl();
-		//String HomeUrl = HomePage.getHomeUrl();
-		//assertEquals("cant not go to url: " + HomeUrl, currentURL, HomeUrl);
+		String currentURL = driver.getCurrentUrl();
+		String HomeUrl = HomePage.getHomeUrl();
+		assertTrue(currentURL.equals(HomeUrl), "cant not go to url: " + HomeUrl + ".But went to:" + currentURL);
+		
+		ProductDetailPage productDetailPage = HomePage.ClickToProductDetail(ProductXpath, ProductDetailUrl);
+		
+		productDetailPage.Click(AddtoWishXpath);
+		
+		String errorReport = productDetailPage.GetText(Temp);
+		System.out.println(errorReport);
+		//for(int i = 0; i < errorReport.length; i++) {
+		//	System.out.println(errorReport[i]);
+		//}
+		
+		//assertTrue(errorReport.equals("You must be logged in to manage your wishlist."));
+	}
+	
+	@Test
+	/*
+	 * FR007.B1 P1 The products can be added into shopping cart from the product detail page.
+	 */
+	public void FR007B1P1Test() {
+		String HomePageURL = "http://automationpractice.com/index.php";
+		String ProductXpath = "//div[@id = 'center_column']//div[@class = 'tab-content']//ul[@id = 'homefeatured']//"
+				+ "li[@class = 'ajax_block_product col-xs-12 col-sm-4 col-md-3 first-in-line first-item-of-tablet-line "
+				+ "first-item-of-mobile-line']/div/div[@class = 'left-block']//div[@class = 'product-image-container']//a[@class = 'product_img_link']";
+		String ProductDetailUrl = "http://automationpractice.com/index.php?id_product=1&controller=product";
+		String AddtoCartXpath = "//p[@id = 'add_to_cart']/button";
+		String ReplyXpath = "//div[@class = 'layer_cart_product col-xs-12 col-md-6']//h2";
+		DriverDocPage = new DriverDocPage(driver);
+		
+		DriverHomePageBen HomePage = (DriverHomePageBen) DriverDocPage.NavigateToPage(HomePageURL);
+		String currentURL = driver.getCurrentUrl();
+		String HomeUrl = HomePage.getHomeUrl();
+		assertTrue(currentURL.equals(HomeUrl), "cant not go to url: " + HomeUrl + ".But went to:" + currentURL);
+		
+		ProductDetailPage productDetailPage = HomePage.ClickToProductDetail(ProductXpath, ProductDetailUrl);
+		
+		productDetailPage.Click(AddtoCartXpath);
+		
+		String x = productDetailPage.GetText(ReplyXpath);
+		System.out.println("output" + x);
 	}
 }

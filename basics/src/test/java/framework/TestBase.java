@@ -1,5 +1,7 @@
 package framework;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -22,14 +24,15 @@ public class TestBase {
 		}
 		
 		
-		System.out.println(browsertype);
 		DManager = WebDriverFactory.getManager(browsertype);
 		DManager.createDriver();
 		driver = DManager.getDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 	}
 
 	@After
 	public void cleanup(){
-		DManager.quitDriver();
+		//DManager.quitDriver();
 	}
 }
