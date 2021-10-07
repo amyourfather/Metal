@@ -131,6 +131,7 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 		SearchResultPage searchResultPage = (SearchResultPage) DriverDocPage.NavigateToPage(resultPage);
 		String resultUrl = searchResultPage.getResultUrl();
 		
+		assertEquals("These urls do not match.", currentUrl, resultUrl);
 		
 	}
 }
