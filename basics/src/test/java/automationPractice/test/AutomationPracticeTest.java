@@ -25,6 +25,10 @@ FR005.B4 P1 User will be able to add the product to his shopping cart. User will
 Savon
 FR003.B1 P1 Buyers  will  be  able  to  search  the  products  by  keyword,  by  browsing  through category/sub-category, using filters and sorting options.
 FR004.B1 P1 Buyers will be able to view the listing of the product with following details:
+	o Product title
+	o Thumbnail image 
+	o Price
+	o Ratings & reviews
 FR007.B4 P1 User will be able to proceed for checkout of any items/ all items available in shopping cart.
 
 Ben
@@ -134,4 +138,26 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 		assertEquals("These urls do not match.", currentUrl, resultUrl);
 		
 	}
+	
+	@Test
+	/*
+	 * FR004.B1 P1 Buyers will be able to view the listing of the product with following details:
+		o Product title
+		o Thumbnail image 
+		o Price
+		o Ratings & reviews
+	 */
+	public void FR004B1P1Test() {
+		String homePage = "http://automationpractice.com/index.php";
+		
+	}
+	
+	@Test
+	/*
+	 * FR007.B4 P1 User will be able to proceed for checkout of any items/ all items available in shopping cart.
+	 */
+	public void FR007B4P1Test() {
+		String currentUrl = driver.getCurrentUrl();
+	}
+	
 }
