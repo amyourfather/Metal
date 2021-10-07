@@ -158,6 +158,7 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 	 */
 	public void FR007B4P1Test() {
 		String currentUrl = driver.getCurrentUrl();
+		String checkoutButtonXpath = "//p[@class='cart-buttons']//a[@id='button_order_cart']";
 	}
 	
 }
