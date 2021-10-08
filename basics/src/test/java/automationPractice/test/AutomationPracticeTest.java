@@ -132,12 +132,14 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 		String searchButtonXpath = "//button[@name='submit_search']";
 		String searchTerm = "Shirt";
 		String resultPage = "http://automationpractice.com/index.php?controller=search&orderby=position&orderway=desc&search_query=Shirt&submit_search=";
+		String productListXpath = "//ul[@class='product_list row list']";
 		
 		DriverDocPage = new DriverDocPage(driver);
 		DriverHomePageBen HomePage = (DriverHomePageBen) DriverDocPage.NavigateToPage(homePageUrl);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		String currentUrl = driver.getCurrentUrl();
-		HomePage.ClickSearchBar(searchBarXpath, searchButtonXpath, searchTerm);
+		
+		HomePage.ClickSearchBar(searchBarXpath, searchButtonXpath, searchTerm, productListXpath);
 		SearchResultPage searchResultPage = (SearchResultPage) DriverDocPage.NavigateToPage(resultPage);
 		String resultUrl = searchResultPage.getResultUrl();
 		

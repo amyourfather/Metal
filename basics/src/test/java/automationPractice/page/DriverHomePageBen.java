@@ -15,10 +15,7 @@ import automationPractice.test.CheckoutPage;
 public class DriverHomePageBen extends DriverDocPage {
 
 	private String HomePageURL = "http://automationpractice.com/index.php";
-	private String searchBarXpath = "//input[@id='search_query_top']";
-	private String searchButtonXpath = "//button[@name='submit_search']";
-	private String searchTerm;
-	private String productListXpath = "//ul[@class='product_list row list']";
+
 
 	
 	public DriverHomePageBen(WebDriver driver) {
@@ -34,7 +31,7 @@ public class DriverHomePageBen extends DriverDocPage {
 		return new ProductDetailPage(this.driver, ProductXpath, ProductDetailUrl);
 	}
 	
-	public DriverHomePageBen ClickSearchBar(String searchBarXpath, String searchButtonXpath, String searchTerm) {
+	public DriverHomePageBen ClickSearchBar(String searchBarXpath, String searchButtonXpath, String searchTerm, String productListXpath) {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		WebElement searchBar = driver.findElement(By.xpath(searchBarXpath));
 		searchBar.sendKeys(searchTerm);
