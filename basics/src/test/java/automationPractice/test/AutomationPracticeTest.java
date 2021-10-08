@@ -1,7 +1,10 @@
 package automationPractice.test;
 
 import static org.testng.Assert.assertEquals;
+
 import static org.testng.Assert.assertTrue;
+
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 
@@ -11,6 +14,7 @@ import framework.WebDriverFactory;
 import automationPractice.foundation.DriverDocPage;
 import automationPractice.page.DriverHomePageBen;
 import automationPractice.page.ProductDetailPage;
+import automationPractice.page.SearchResultPage;
 
 public class AutomationPracticeTest extends TestBase{
 	/*
@@ -123,19 +127,21 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 	 * FR003.B1 P1 Buyers  will  be  able  to  search  the  products  by  keyword,  by  browsing  through category/sub-category, using filters and sorting options.
 	 */
 	public void FR003B1P1Test() {
-		String homePage = "http://automationpractice.com/index.php";
+		String homePageUrl = "http://automationpractice.com/index.php";
 		String searchBarXpath = "//input[@id='search_query_top']";
 		String searchButtonXpath = "//button[@name='submit_search']";
 		String searchTerm = "Shirt";
 		String resultPage = "http://automationpractice.com/index.php?controller=search&orderby=position&orderway=desc&search_query=Shirt&submit_search=";
-		DriverDocPage = new DriverDocPage(driver);
-		DriverHomePageBen HomePage = (DriverHomePageBen) DriverDocPage.NavigateToPage(homePage);
-		String currentUrl = driver.getCurrentUrl();
 		
+		DriverDocPage = new DriverDocPage(driver);
+		DriverHomePageBen HomePage = (DriverHomePageBen) DriverDocPage.NavigateToPage(homePageUrl);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		String currentUrl = driver.getCurrentUrl();
+		HomePage.ClickSearchBar(searchBarXpath, searchButtonXpath, searchTerm);
 		SearchResultPage searchResultPage = (SearchResultPage) DriverDocPage.NavigateToPage(resultPage);
 		String resultUrl = searchResultPage.getResultUrl();
 		
-		assertEquals("These urls do not match.", currentUrl, resultUrl);
+		assertEquals("These urls match.", currentUrl, resultUrl);
 		
 	}
 	
@@ -157,8 +163,20 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 	 * FR007.B4 P1 User will be able to proceed for checkout of any items/ all items available in shopping cart.
 	 */
 	public void FR007B4P1Test() {
-		String currentUrl = driver.getCurrentUrl();
+		String homePageUrl = "http://automationpractice.com/index.php";
 		String checkoutButtonXpath = "//p[@class='cart-buttons']//a[@id='button_order_cart']";
+		String checkoutPageUrl = "http://automationpractice.com/index.php?controller=order";
+		String orderDetailXpath = "//div[@id='order-detail-content']";
+		
+		DriverDocPage = new DriverDocPage(driver);
+		DriverHomePageBen HomePage = new DriverHomePageBen(driver);
+		HomePage.NavigateToPage(homePageUrl);
+		HomePage.clickCheckoutButton(checkoutButtonXpath, orderDetailXpath);
+		String currentUrl = driver.getCurrentUrl();
+		CheckoutPage checkoutPage = (CheckoutPage) DriverDocPage.NavigateToPage(currentUrl);
+		String checkoutUrl = checkoutPage.getCheckoutUrl();
+		
+		assertEquals("These urls should be the same.", checkoutUrl, checkoutPageUrl);
 	}
 	
 }

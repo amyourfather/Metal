@@ -1,4 +1,4 @@
-package automationPractice.test;
+package automationPractice.page;
 
 import org.openqa.selenium.WebDriver;
 

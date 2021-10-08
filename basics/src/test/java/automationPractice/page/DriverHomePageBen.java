@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import automationPractice.foundation.DriverDocPage;
+import automationPractice.test.CheckoutPage;
 
 public class DriverHomePageBen extends DriverDocPage {
 
@@ -40,6 +41,15 @@ public class DriverHomePageBen extends DriverDocPage {
 		driver.findElement(By.xpath(searchButtonXpath)).click();
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(productListXpath)));
+		return new DriverHomePageBen(this.driver);
+	}
+	
+	public DriverHomePageBen clickCheckoutButton(String checkoutButtonXpath, String orderDetailXpath) {
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		WebElement checkoutButton = driver.findElement(By.xpath(checkoutButtonXpath));
+		checkoutButton.click();
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(orderDetailXpath)));
 		return new DriverHomePageBen(this.driver);
 	}
 }
