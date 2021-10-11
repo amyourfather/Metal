@@ -18,8 +18,8 @@ import automationPractice.page.DriverHomePageBen;
 public class DriverDocPage {
 	protected WebDriver driver;
 	protected final long WaitTimeOut = 5;
-	protected Duration NavWaitTimeOut = Duration.ofSeconds(5);
-	protected Duration PollingMilSec = Duration.ofMillis(100);
+	protected Duration NavWaitTimeOut = Duration.ofSeconds(10);
+	protected Duration PollingMilSec = Duration.ofSeconds(10);
 	//need to change later this is the place that saves the url
 	protected String HomePageUrlBen = "http://automationpractice.com/index.php";
 	protected String TextBoxUrl = "https://demoqa.com/text-box";
@@ -59,10 +59,6 @@ public class DriverDocPage {
 		WebDriverWait wait = new WebDriverWait(driver, WaitTimeOut);
 		wait.until(ExpectedConditions.elementToBeClickable(button));			
 		button.click();
-	}
-	
-	public void ClickByCss(String CSSPath) {
-
 	}
 	
 	//if have new link
@@ -117,7 +113,7 @@ public class DriverDocPage {
 	public String[] GetTexts(String xpath) {
 		List<WebElement> locations = driver.findElements(By.xpath(xpath));
 		int size = locations.size();
-		System.out.println(size);
+		//System.out.println(size);
 		String[] result = new String[size];
 		for(int i = 0; i < size; i++) {
 			result[i] = locations.get(i).getText();
