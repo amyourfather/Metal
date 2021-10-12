@@ -9,47 +9,41 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import automationPractice.page.DriverHomePageBen;
+//import automationPractice.page.DriverHomePageBen;
 
-public class DriverDocPage {
+public abstract class DriverDocPage {
 	protected WebDriver driver;
 	protected final long WaitTimeOut = 5;
 	protected Duration NavWaitTimeOut = Duration.ofSeconds(10);
 	protected Duration PollingMilSec = Duration.ofSeconds(10);
 	//need to change later this is the place that saves the url
 	protected String HomePageUrlBen = "http://automationpractice.com/index.php";
-	protected String TextBoxUrl = "https://demoqa.com/text-box";
-	protected String RadioButtonUrl = "https://demoqa.com/radio-button";
-	protected String LinksUrl = "https://demoqa.com/links";
 	
 	public DriverDocPage(WebDriver driver) {
 		this.driver = driver;
+		PageFactory.initElements(driver, this); 
 	}
-	
 	
 	// for all the sub class name them as "DriversomethingsomethingPage"
 	public DriverDocPage NavigateToPage(String URL) {
 		
 		if (URL == this.HomePageUrlBen) {
 			driver.navigate().to(URL);
-			return new DriverHomePageBen(driver);
+			//return new DriverHomePageBen(driver);
 		}
-		/*
-		if (URL == this.RadioButtonUrl) {
-			driver.navigate().to(URL);
-			return new DriverRadioButtonPage(driver);
-		}
-		
-		if (URL == this.LinksUrl) {
-			driver.navigate().to(URL);
-			return new DriverLinkPage(driver);
-		}
-		*/
 		throw new IllegalArgumentException("you just entered an unsupported website URL: " + URL);
+	}
+	
+	//Nanda added 
+	public void goToUrl(String relativeUrl) {
+		String fullUrl = this.HomePageUrlBen + relativeUrl;
+
+		this.driver.navigate().to(fullUrl);		
 	}
 	
 	//if nothing
