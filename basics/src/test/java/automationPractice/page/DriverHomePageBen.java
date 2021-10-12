@@ -7,7 +7,7 @@ import automationPractice.foundation.DriverDocPage;
 public class DriverHomePageBen extends DriverDocPage {
 
 	private String HomePageURL = "http://automationpractice.com/index.php";
-	
+	private final String ContactUsXpath = "//a[@title = 'Contact us']";
 	public DriverHomePageBen(WebDriver driver) {
 		super(driver);
 	}
@@ -21,4 +21,8 @@ public class DriverHomePageBen extends DriverDocPage {
 		return new ProductDetailPage(this.driver, ProductXpath, ProductDetailUrl);
 	}
 
+	public ContactUsPage NavigateToContacUs() {
+		super.Click(ContactUsXpath);
+		return new ContactUsPage(driver);
+	}
 }
