@@ -45,7 +45,13 @@ public class ContactUsPage extends DriverDocPage {
 		chooseSubjectHeading(subjectHeading);
 		fillInEmail(emailAddress);
 		fillInMessage(message);
-		
+		super.Click("//button[@name = 'submitMessage']");
+		super.GetText("//p[@class = 'alert alert-success']");
 		return this;		
+	}
+	
+	public String getAlertText() {
+		super.Click("//button[@name = 'submitMessage']");
+		return super.GetText("//p[@class = 'alert alert-success']");
 	}
 }

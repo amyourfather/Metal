@@ -183,5 +183,8 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 				.NavigateToContacUs();
 		
 		contactUsPage.submitForm(subjectHeading, emailAddress, message);
+		
+		String alertText = contactUsPage.getAlertText();
+		assertTrue(alertText.equals("Your message has been successfully sent to our team."));
 	}
 }
