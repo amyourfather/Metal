@@ -31,22 +31,22 @@ public class DriverHomePageBen extends DriverDocPage {
 		return new ProductDetailPage(this.driver, ProductXpath, ProductDetailUrl);
 	}
 	
-	public DriverHomePageBen ClickSearchBar(String searchBarXpath, String searchButtonXpath, String searchTerm, String productListXpath) {
+	public SearchResultPage ClickSearchBar(String searchBarXpath, String searchButtonXpath, String searchTerm, String productListXpath) {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		WebElement searchBar = driver.findElement(By.xpath(searchBarXpath));
 		searchBar.sendKeys(searchTerm);
 		driver.findElement(By.xpath(searchButtonXpath)).click();
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(productListXpath)));
-		return new DriverHomePageBen(this.driver);
+		return new SearchResultPage(this.driver);
 	}
 	
-	public DriverHomePageBen clickCheckoutButton(String checkoutButtonXpath, String orderDetailXpath) {
+	public CheckoutPage clickCheckoutButton(String checkoutButtonXpath, String orderDetailXpath) {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		WebElement checkoutButton = driver.findElement(By.xpath(checkoutButtonXpath));
 		checkoutButton.click();
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(orderDetailXpath)));
-		return new DriverHomePageBen(this.driver);
+		return new CheckoutPage(this.driver);
 	}
 }

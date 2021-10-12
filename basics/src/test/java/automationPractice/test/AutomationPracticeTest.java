@@ -45,24 +45,6 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 	
 	@Test
 	/*
-	 * FR001.B1 P2 User will be able to login into the website using the email and password.
-	 */
-	public void TestExample() {
-		String HomePageURL = "http://automationpractice.com/";
-		String somethingXpath = "";
-		//new the driver page
-		//DriverDocPage = new DriverDocPage(driver);
-		//set default email address + set password
-		//DriverHomePage HomePage = DriverDocPage.NavigateToPage(HomePageURL);
-		//String currentURL = driver.getCurrentUrl();
-		//String HomeUrl = HomePage.getHomeUrl();
-		//assertEquals("cant not go to url: " + HomeUrl, currentURL, HomeUrl);
-		
-		
-	}
-	
-	@Test
-	/*
 	 * FR005.B6 P3 User will not be able to add the product to wishlist without login.
 	 */
 	public void FR005B6P3Test() {
@@ -144,19 +126,6 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 		String resultUrl = searchResultPage.getResultUrl();
 		
 		assertEquals("These urls match.", currentUrl, resultUrl);
-		
-	}
-	
-	@Test
-	/*
-	 * FR004.B1 P1 Buyers will be able to view the listing of the product with following details:
-		o Product title
-		o Thumbnail image 
-		o Price
-		o Ratings & reviews
-	 */
-	public void FR004B1P1Test() {
-		String homePage = "http://automationpractice.com/index.php";
 		
 	}
 	

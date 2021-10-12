@@ -1,4 +1,4 @@
-package automationPractice.page;
+package automationPractice.test;
 
 import java.util.concurrent.TimeUnit;
 
