@@ -45,26 +45,7 @@ FR008.B3 P2 Buyer  will  required  to  enter  billing  and  shipping  address  b
 FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  regarding  any  queries/
 	 */
 	
-	@Test
-	/*
-	 * FR001.B1 P2 User will be able to login into the website using the email and password.
-	 */
-	public void TestExample() {
-		String HomePageURL = "http://automationpractice.com/";
-		String somethingXpath = "";
-		//new the driver page
-		//DriverDocPage = new DriverDocPage(driver);
-		//set default email address + set password
-		//DriverHomePage HomePage = DriverDocPage.NavigateToPage(HomePageURL);
-		//String currentURL = driver.getCurrentUrl();
-		//String HomeUrl = HomePage.getHomeUrl();
-		//assertEquals("cant not go to url: " + HomeUrl, currentURL, HomeUrl);
-	}
 	
-	@Test
-	/*
-	 * FR005.B6 P3 User will not be able to add the product to wishlist without login.
-	 */
 	public void FR005B6P3Test() {
 		String HomePageURL = "http://automationpractice.com/index.php";
 		String ProductXpath = "//div[@id = 'center_column']//div[@class = 'tab-content']//ul[@id = 'homefeatured']//"
