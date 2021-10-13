@@ -151,4 +151,32 @@ FR013.B1 P4 Buyers  will  be  able  to  contact  support  team  via  email  rega
 		assertEquals("These urls should be the same.", checkoutUrl, checkoutPageUrl);
 	}
 	
+	@Test
+	/*
+	 * FR004.B1 P1 Buyers will be able to view the listing of the product with following details:
+		o Product title
+		o Thumbnail image 
+		o Price
+		o Ratings & reviews
+	 */
+	public void FR004B1P1Test() {
+		String homePageUrl = "http://automationpractice.com/index.php";
+		String productXpath = "//ul[@id='homefeatured']//li[@class='ajax_block_product col-xs-12 col-sm-4 col-md-3 first-in-line first-item-of-tablet-line first-item-of-mobile-line']";
+		String productUrl = "http://automationpractice.com/index.php?id_product=1&controller=product";
+		String productPriceXpath = "//div[@class='price']//p[@class='our_price_display']//span[@id='our_price_display']";
+		String productReviewXpath = "//section//h3[@id='#idTab5']";
+		
+		DriverDocPage = new DriverDocPage(driver);
+		DriverHomePageBen HomePage = new DriverHomePageBen(driver);
+		HomePage.NavigateToPage(homePageUrl);
+		HomePage.ClickToProductDetail(productXpath, productUrl);
+		ProductDetailPage detailPage = new ProductDetailPage(driver);
+		String productPrice = detailPage.checkForPrice(productPriceXpath);
+		//String productReview = detailPage.checkForReviews(productReviewXpath);
+		
+		
+		assertEquals(productPrice, productPriceXpath);
+		//assertEquals(productReview, productReviewXpath);
+	}
+	
 }

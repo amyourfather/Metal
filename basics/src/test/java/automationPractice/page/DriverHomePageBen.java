@@ -49,4 +49,5 @@ public class DriverHomePageBen extends DriverDocPage {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(orderDetailXpath)));
 		return new CheckoutPage(this.driver);
 	}
+	
 }
