@@ -1,0 +1,26 @@
+Team Metal Sprint 2 Retrospective
+
+Velocity Comparison:
+
+Nanda, Ben, Savon
++ Divided Work amongst ourselves
++ Helping each other getting ideas for test cases
++ Collaborating
+
+- Sprint planning
+- Reporting
+- Learning Jira
+- Bug Report
+
+Action items.
+-Sprint Planning
+Remedy: Actually dividing work into different sprints.
+
+-Reporting
+Remedy: Whenever a team member is done, they would report it on Jira.
+
+-Learing Jira
+Remedy: Spend more time using Jira.
+
+-Bug Report
+Remedy: Report the bug when it is shown.

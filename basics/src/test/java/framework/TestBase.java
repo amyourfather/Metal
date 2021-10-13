@@ -23,7 +23,6 @@ public class TestBase {
 			throw new RuntimeException("property file not found in the classpath");
 		}
 		
-		
 		DManager = WebDriverFactory.getManager(browsertype);
 		DManager.createDriver();
 		driver = DManager.getDriver();
@@ -33,6 +32,11 @@ public class TestBase {
 
 	@After
 	public void cleanup(){
-		//DManager.quitDriver();
+		DManager.quitDriver();
+	}
+	
+	//Nanda added
+	public WebDriver getDriver() {
+		return this.DManager.getDriver();
 	}
 }

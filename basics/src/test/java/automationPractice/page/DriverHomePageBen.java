@@ -15,9 +15,8 @@ import automationPractice.page.CheckoutPage;
 public class DriverHomePageBen extends DriverDocPage {
 
 	private String HomePageURL = "http://automationpractice.com/index.php";
+	private final String ContactUsXpath = "//a[@title = 'Contact us']";
 
-
-	
 	public DriverHomePageBen(WebDriver driver) {
 		super(driver);
 	}
@@ -49,5 +48,9 @@ public class DriverHomePageBen extends DriverDocPage {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(orderDetailXpath)));
 		return new CheckoutPage(this.driver);
 	}
-	
+
+	public ContactUsPage NavigateToContacUs() {
+		super.Click(ContactUsXpath);
+		return new ContactUsPage(driver);
+	}
 }
