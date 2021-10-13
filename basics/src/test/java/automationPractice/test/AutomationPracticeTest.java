@@ -12,6 +12,7 @@ import framework.ChromeDriverManager;
 import framework.TestBase;
 import framework.WebDriverFactory;
 import automationPractice.foundation.DriverDocPage;
+import automationPractice.page.CheckoutPage;
 import automationPractice.page.DriverHomePageBen;
 import automationPractice.page.ProductDetailPage;
 import automationPractice.page.SearchResultPage;
